@@ -35,10 +35,18 @@ database.ref().on("child_added", function (snapshot) {
     var convertedFirstTrainTime = moment(snapshot.val().firstTrain, "HH:mm")
     var currentTime = moment().format("HH:mm");
     var timeSinceFirst = moment().diff(moment(convertedFirstTrainTime), "minutes");
-    var minutesAway = (frequency) - (timeSinceFirst % frequency);
+    var minutesAway = (frequency) - (timeSinceFirst % frequency) + " minutes";
     var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm A");
     var lastTrain = moment(convertedFirstTrainTime).add((frequency * runs), "minutes").format("hh:mm A");
+    var lastTrainMoment = moment(convertedFirstTrainTime).add((frequency * runs), "minutes");
+
+    if (moment().isBetween(convertedFirstTrainTime, lastTrainMoment)) {
+
+    } else {
+        nextArrival = moment(convertedFirstTrainTime).format("hh:mm A");
+        minutesAway = moment(convertedFirstTrainTime,).to(moment());
+    }
 
     $("tbody").append("<tr><td>" + snapshot.val().train + "</td><td>" + snapshot.val().destination + "</td><td>" +
-        "Every " + snapshot.val().frequency + " minutes" + "</td><td>" + nextArrival + "</td><td>" + minutesAway + " minutes" + "</td><td>" + lastTrain + "</td></tr>")
+        "Every " + snapshot.val().frequency + " minutes" + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td><td>" + lastTrain + "</td></tr>")
 })
