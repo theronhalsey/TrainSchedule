@@ -1,0 +1,57 @@
+.jumbotron {
+    height: 250px;
+}
+
+.headTab {
+    font-size: 2em;
+    font-weight: bolder;
+    border: 1px solid black;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    color: white;
+    background-color: black;
+    padding-top: 2px;
+    padding-bottom: 4px;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+table#schedule {
+    width: 100%;
+    font-size: 2rem;
+}
+
+table, th, td {
+    padding-top: 0px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: .15em;
+}
+
+table#schedule tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table#schedule tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table#schedule th {
+    color: white;
+    background-color: black;
+}
+
+th {
+    text-align: center;
+    font-weight: bold;
+}
+
+#addTrainForm {
+    padding-top: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
